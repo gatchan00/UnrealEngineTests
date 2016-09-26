@@ -21,7 +21,8 @@ void UPositionReport::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
+	FString tempString = this->GetOwner()->GetName();
+	UE_LOG(LogTemp, Warning, TEXT("Begin play para %s"),*tempString);
 	
 }
 
@@ -30,7 +31,6 @@ void UPositionReport::BeginPlay()
 void UPositionReport::TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction )
 {
 	Super::TickComponent( DeltaTime, TickType, ThisTickFunction );
-
 	// ...
 }
 
