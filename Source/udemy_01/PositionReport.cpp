@@ -22,7 +22,11 @@ void UPositionReport::BeginPlay()
 	Super::BeginPlay();
 
 	FString tempString = this->GetOwner()->GetName();
-	UE_LOG(LogTemp, Warning, TEXT("Begin play para %s"),*tempString);
+	float x = this->GetOwner()->GetTransform().GetLocation().X;
+	float y = this->GetOwner()->GetTransform().GetLocation().Y;
+	float z = this->GetOwner()->GetTransform().GetLocation().Z;
+	FString tempString2 = " pos: X= Y=";
+	UE_LOG(LogTemp, Warning, TEXT("Begin play para %s con X=%3.2f Y=%3.2f Z=%3.2f"),*tempString, x,y,z);
 	
 }
 
