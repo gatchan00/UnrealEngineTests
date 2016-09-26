@@ -1,14 +1,15 @@
 ######################## 
 #Unreal generated files# And StarterContent that can be get from almost any place
 ######################## And .VC.db that can be generated from the unreal project (right click form X.uproject-> Generate Visual studio files)
-*/Intermediate
-*/Binaries
-*/DerivedDataCache
-*/Saved
-*/Build
+Intermediate/
+Binaries/
+DerivedDataCache/
+Saved/
+Build/
 Content/StarterContent/
 
 ######################## 
 #Visual Studio Files   # 
 ########################
 *.VC.db
+udemy_01.VC.VC.opendb
