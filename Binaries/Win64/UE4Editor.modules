@@ -1,8 +1,8 @@
 {
-	"Changelist" : 3106830,
-	"BuildId" : "",
+	"Changelist" : 3142249,
+	"BuildId" : "a5c7e5f5-4bc6-41a3-bdbb-7d3609e5011f",
 	"Modules" : 
 	{
-		"udemy_01" : "UE4Editor-udemy_01-4209.dll"
+		"udemy_01" : "UE4Editor-udemy_01-8493.dll"
 	}
 }

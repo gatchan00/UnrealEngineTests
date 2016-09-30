@@ -20,17 +20,40 @@ UOpenDoor::UOpenDoor()
 void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
+	//obtenemos el jugador
+	QuienActivaEsto = GetWorld()->GetFirstPlayerController()->GetPawn();
+	//this->OpenDoor();
 	// ...
 	
 }
 
+void UOpenDoor::OpenDoor() {
+	AActor* owner = this->GetOwner();
+	FRotator giro = FRotator(0.0f, OpenAngle, 0.0f);
+	owner->SetActorRotation(giro);
+	//GetOwner()->SetActorRotation(FRotator(0.0f, OpenAngle, 0.0f));
+
+}
+void UOpenDoor::CloseDoor() {
+	AActor* owner = this->GetOwner();
+	FRotator giro = FRotator(0.0f, 0.0f, 0.0f);
+	owner->SetActorRotation(giro);
+}
 
 // Called every frame
 void UOpenDoor::TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction )
 {
 	Super::TickComponent( DeltaTime, TickType, ThisTickFunction );
-
+	if (PlacaActivacion->IsOverlappingActor(QuienActivaEsto)) {
+		this->OpenDoor();
+		LastDoorOpenTime = GetWorld()->GetTimeSeconds();
+	}
+	else if (GetWorld()->GetTimeSeconds() >= (LastDoorOpenTime+ DoorCloseDelay) )
+	{ 
+		this->CloseDoor(); 
+	}
 	// ...
+	
 }
 

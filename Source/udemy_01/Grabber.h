@@ -3,40 +3,27 @@
 #pragma once
 
 #include "Components/ActorComponent.h"
-#include "OpenDoor.generated.h"
+#include "Grabber.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class UDEMY_01_API UOpenDoor : public UActorComponent
+class UDEMY_01_API UGrabber : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	UOpenDoor();
+	UGrabber();
 
 	// Called when the game starts
 	virtual void BeginPlay() override;
 	
 	// Called every frame
 	virtual void TickComponent( float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction ) override;
-	
-	
-	void OpenDoor();
-	void CloseDoor();
 
 private:
-	UPROPERTY(EditAnywhere) //ya no quiero el VisibleAnywhere
-	float OpenAngle = 70.0f;
+	//how long can reach this character something
+	UPROPERTY(EditAnywhere)
+	float Reach = 100.0f;
 	
-	UPROPERTY(EditAnywhere)
-	ATriggerVolume* PlacaActivacion;
-
-	//UPROPERTY(EditAnywhere) no quiero que se edite
-	APawn* QuienActivaEsto;
-
-	UPROPERTY(EditAnywhere)
-	float DoorCloseDelay=1.0f;
-
-	float LastDoorOpenTime;
 };
